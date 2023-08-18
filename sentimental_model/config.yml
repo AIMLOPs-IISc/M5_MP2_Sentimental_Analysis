@@ -1,0 +1,56 @@
+# Package Overview
+package_name: sentiment_model
+
+# Data Files
+train_path: train
+validation_path: validation
+test_path: test
+
+data_file_name: Reviews2.csv
+model_name: sentiment_model
+model_save_file: sentiment_model_output_v
+
+# Feature engineering parameters
+batch_size: 128
+scaling_factor: 255.0
+
+
+# Set the random seed
+random_state: 42
+
+# Alogrithm parameters
+input_shape: 
+  - 180
+  - 180
+  - 3
+epochs: 1
+optimizer: adam
+loss: binary_crossentropy
+accuracy_metric: accuracy
+verbose: 1
+earlystop: 0
+monitor: val_loss
+save_best_only: True
+
+activation: sigmoid
+EMBEDDING_DIM: 32
+maxlen: 100
+num_words: 5000
+
+label_name: Target
+feature_name: Text 
+
+split_1: 0.20
+split_2: 0.25
+
+padding_val: post
+truncating_val: post
+
+lable_target_list:
+  - N
+  - P
+
+label_mappings: 
+  0: N
+  1: P
+
