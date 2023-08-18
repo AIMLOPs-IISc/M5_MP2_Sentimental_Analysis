@@ -43,8 +43,8 @@ jobs:
         python-version: '3.10'
     - uses: actions/download-artifact@v2
       with:
-        name: my-trained-pipeline
-    - run: mv *.pkl sentimental_model/
+        name: my-trained-model
+    - run: mv sentimental_model.keras sentimental_model/
     - name: Install dependencies
       run: pip install -r requirements/test_requirements.txt
     - name: Test with pytest
@@ -63,8 +63,10 @@ jobs:
         python-version: '3.10'
     - uses: actions/download-artifact@v2
       with:
-        name: my-trained-pipeline
-    - run: mv *.pkl sentimental_model/trained_models/
+        name: my-trained-model
+    - run:
+        cp sentimental_model.keras sentimental_model/  
+        mv sentimental_model.keras sentimental_model_api/app/
     - name: Install dependencies
       run: pip install --upgrade build
     - name: Build package
