@@ -50,6 +50,9 @@ if settings.BACKEND_CORS_ORIGINS:
 
 
 if __name__ == "__main__":
+    import nltk
+    nltk.download('stopwords')
+    nltk.download('punkt')
     # Use this for debugging purposes only
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8001)
